@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link
+			rel="shortcut icon"
+			href="./assests/images/favicon-32x32.png"
+			type="image/x-icon"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<main>
+			<a href="index.html">BACK</a>
+			<div class="counter-container">
+				<div class="user-points-container">
+					<span class="text">YOU</span>
+					<span class="text-bold" id="user-points">0</span>
+				</div>
+				<div>
+					<span>ROCK</span>
+					<span>PAPER</span>
+					<span>SCISSORS</span>
+				</div>
+				<div class="pc-points-container">
+					<span class="text">YOU</span>
+					<span class="text-bold" id="pc-points">0</span>
+				</div>
+			</div>
+			<div class="options-container">
+				<div class="paper" id="paper" data-item="paper">
+					<img src="./assests/images/icon-paper.svg" alt="" />
+				</div>
+				<div class="scissors" id="scissors" data-item="scissors">
+					<img src="./assests/images/icon-scissors.svg" alt="" />
+				</div>
+				<div class="rock" id="rock" data-item="rock">
+					<img src="./assests/images/icon-rock.svg" alt="" />
+				</div>
+			</div>
+			<div class="selected-options-container">
+				<div class="user-selection-container">
+					<span>You picked</span>
+					<div class="user-selection" id="user-selection">
+						<img src="./assests/images/icon-paper.svg" alt="" />
+					</div>
+				</div>
+				<div>
+					<span id="game-result"></span>
+					<!-- <a href="#">PLAY AGAIN</a> -->
+				</div>
+				<div class="pc-selection-container">
+					<span>PC picked</span>
+					<div class="pc-selection" id="pc-selection">
+						<img src="./assests/images/icon-paper.svg" alt="" />
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="./js/scripts.js"></script>
+	</body>
+</html>
