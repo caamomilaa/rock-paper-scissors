@@ -20,9 +20,7 @@ const userPointsElement = document.getElementById('user-points');
 const pcPointsElement = document.getElementById('pc-points');
 
 //OPCIONES
-const paperElement = document.getElementById('paper');
-const scissorsElement = document.getElementById('scissors');
-const rockElement = document.getElementById('rock');
+const optionsContainerElement = document.getElementById('options-container');
 
 //RESULTADO
 const userSelectionElement = document.getElementById('user-selection');
@@ -32,23 +30,52 @@ const gameResultElement = document.getElementById('game-result');
 const pcOptions = ['rock', 'paper', 'scisssors'];
 
 const gameOptions = {
-	rock: {
-		paper: false,
-		scissors: true
-	},
-	paper: {
-		rock: true,
-		scissors: false
-	},
-	scissors: {
-		rock: false,
-		paper: true
-	}
+  rock: {
+    paper: false,
+    scissors: true
+  },
+  paper: {
+    rock: true,
+    scissors: false
+  },
+  scissors: {
+    rock: false,
+    paper: true
+  }
 };
 
-const getPcMove = () => {
-	//se puede sacar una posición random de un objeto?
-	const randomPosition = Math.floor(Math.random() * pcOptions.length);
-	console.log(randomPosition);
+//LÓGICA
+
+let userOption;
+let pcOption;
+
+//     - Comparar jugadas
+const compareSelectedOptions = () => {
+  if (userOption === pcOption) {
+    console.log('tie');
+  }
 };
-getPcMove(); //esto cambiará a cuando user seleccione una opcion
+
+//Jugada PC
+const getPcOption = () => {
+  //se puede sacar una posición random de un objeto?
+  const randomPosition = Math.floor(Math.random() * pcOptions.length);
+  pcOption = pcOptions[randomPosition];
+  compareSelectedOptions();
+};
+
+//Jugada User
+const saveUserOption = event => {
+  userOption = event.target.dataset.item;
+  getPcOption();
+};
+
+optionsContainerElement.addEventListener('click', saveUserOption);
+
+// const compareSelectedOptions = () => {
+//   //objeto[useroption]
+//   if (userOption === pcOption) {
+//     console.log('tie');
+//   }
+// };
+// compareSelectedOptions();

@@ -1,3 +1,8 @@
+:root{
+  --paper-circle:blue;
+  --rock-circle:red;
+  --scissors-circle: orange;
+}
 * {
   box-sizing: border-box;
 }
@@ -21,4 +26,25 @@ nav ul {
 body {
   margin: 0;
   font-family: sans-serif;
+}
+.game-icon-container{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid;
+}
+.paper{
+  border-color: var(--paper-circle);
+}
+.rock{
+  border-color: var(--rock-circle);
+}
+.scissors{
+  border-color: var(--scissors-circle);
+}
+.icon{
+  pointer-events: none;
 }
