@@ -13,42 +13,42 @@ const gameResultElement = document.getElementById('game-result');
 const pcOptions = ['rock', 'paper', 'scissors']; //Opciones del PC > simple
 
 const gameOptions = {
-  //Reglas del juego
-  rock: {
-    paper: false,
-    scissors: true,
-    lizard,
-    spoke
-  },
-  paper: {
-    rock: true,
-    scissors: false,
-    lizard,
-    spoke
-  },
-  scissors: {
-    rock: false,
-    paper: true,
-    lizard,
-    spoke
-  },
-  lizard: {
-    rock: false,
-    paper: true,
-    spoke
-  },
-  spoke: {
-    rock: false,
-    paper: true,
-    lizard
-  }
+	//Reglas del juego
+	rock: {
+		paper: false,
+		scissors: true
+		// lizard,
+		// spoke
+	},
+	paper: {
+		rock: true,
+		scissors: false
+		// lizard,
+		// spoke
+	},
+	scissors: {
+		rock: false,
+		paper: true
+		// lizard,
+		// spoke
+	},
+	lizard: {
+		rock: false,
+		paper: true
+		// spoke
+	},
+	spoke: {
+		rock: false,
+		paper: true
+		// lizard
+	}
 };
 
 const gameImages = {
-  //Imágenes del juego
-  rock: './assests/images/icon-rock.svg',
-  paper: './assests/images/icon-paper.svg',
-  scissors: './assests/images/icon-scissors.svg'
+	//Imágenes del juego
+	rock: './assests/images/icon-rock.svg',
+	paper: './assests/images/icon-paper.svg',
+	scissors: './assests/images/icon-scissors.svg'
 };
 
 let userOption;
@@ -60,38 +60,38 @@ let pcPoints = 0;
 
 //Asignación de puntos
 const assignPoints = () => {
-  userPointsElement.textContent = userPoints;
-  pcPointsElement.textContent = pcPoints;
-  userSelectionElement.src = gameImages[userOption]; //Asigación de imagen de la selección del user.
+	userPointsElement.textContent = userPoints;
+	pcPointsElement.textContent = pcPoints;
+	userSelectionElement.src = gameImages[userOption]; //Asigación de imagen de la selección del user.
 };
 
 //Comparación de jugadas
 const compareSelectedOptions = () => {
-  if (userOption === pcOption) {
-    gameResultElement.textContent = 'TIE';
-  } else if (gameOptions[userOption][pcOption]) {
-    //Me meto en el objeto dentro del objeto.
-    gameResultElement.textContent = 'YOU WIN';
-    userPoints++;
-  } else {
-    gameResultElement.textContent = 'YOU LOOSE';
-    pcPoints++;
-  }
-  assignPoints();
+	if (userOption === pcOption) {
+		gameResultElement.textContent = 'TIE';
+	} else if (gameOptions[userOption][pcOption]) {
+		//Me meto en el objeto dentro del objeto.
+		gameResultElement.textContent = 'YOU WIN';
+		userPoints++;
+	} else {
+		gameResultElement.textContent = 'YOU LOOSE';
+		pcPoints++;
+	}
+	assignPoints();
 };
 
 //Jugada PC
 const getPcOption = () => {
-  const randomPosition = Math.floor(Math.random() * pcOptions.length);
-  pcOption = pcOptions[randomPosition];
-  compareSelectedOptions();
-  pcSelectionElement.src = gameImages[pcOption]; //Asigación de imagen de la selección del PC.
+	const randomPosition = Math.floor(Math.random() * pcOptions.length);
+	pcOption = pcOptions[randomPosition];
+	compareSelectedOptions();
+	pcSelectionElement.src = gameImages[pcOption]; //Asigación de imagen de la selección del PC.
 };
 
 //Jugada User
 const saveUserOption = event => {
-  userOption = event.target.dataset.item;
-  getPcOption();
+	userOption = event.target.dataset.item;
+	getPcOption();
 };
 
 optionsContainerElement.addEventListener('click', saveUserOption);
